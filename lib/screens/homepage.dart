@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
             child: GridView.count(
-              crossAxisCount: 4,
+              crossAxisCount: 3,
               childAspectRatio: 1.0,
               mainAxisSpacing: 20.0,
               crossAxisSpacing: 20.0,
@@ -74,31 +74,24 @@ class HomePage extends StatelessWidget {
                   title: 'Stock Risk Prediction',
                   subtitle: 'Predictive Analysis of Stock Market',
                 ),
-                buildCard(
-                  context,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => FraudDetectScreen()),
-                    );
-                  },
-                  icon: Icons.shield,
-                  title: 'Fraud Detection',
-                  subtitle: 'Detect fraud here',
-                ),
+                // buildCard(
+                //   context,
+                //   onTap: () {
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(
+                //           builder: (context) => FraudDetectScreen()),
+                //     );
+                //   },
+                //   icon: Icons.shield,
+                //   title: 'Fraud Detection',
+                //   subtitle: 'Detect fraud here',
+                // ),
                 // Add more cards here
               ],
             ),
           ),
-          Positioned(
-            left: 40,
-            bottom: 0,
-            child: Image.asset(
-              'assets/Bank-of-Baroda-Logo.png',
-              width: 400,
-            ), // replace 'assets/logo.png' with your logo's path
-          ),
+          
         ],
       ),
     );

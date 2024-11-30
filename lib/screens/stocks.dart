@@ -21,7 +21,7 @@ class _PredictStockPageState extends State<PredictStockPage> {
 
   Future<void> loadSpots() async {
     final directory = await getApplicationDocumentsDirectory();
-    final file = File('assets/bob.csv');
+    final file = File('assets/microsoft.csv');
     print(file);
     final csvFile = await file.readAsString();
     final csvList = CsvToListConverter().convert(csvFile);
@@ -52,11 +52,11 @@ class _PredictStockPageState extends State<PredictStockPage> {
   Future<void> generateReport(String stock) async {
     DateTime date = DateTime.now();
     final responsepredict = await http.post(
-      Uri.parse('https://trackriz-api.azurewebsites.net/api/generate_content'),
+      Uri.parse('https://trackriz-bme3gqhfhybfhnap.swedencentral-01.azurewebsites.net/api/generate_content'),
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode({
         'prompt':
-            "Generate a detailed stock price prediction recommendation for Bank of Baroda and predicted stock value is ${stock} , the report is for bank side in simple points",
+            "Generate a detailed stock price prediction recommendation for Microsoft and predicted stock value is ${stock} , the report is for msft side in simple points",
       }),
     );
 
@@ -79,11 +79,11 @@ class _PredictStockPageState extends State<PredictStockPage> {
       DateTime date = DateTime.now().add(Duration(days: i));
       final response = await http.post(
         Uri.parse(
-            'https://trackriz-stock.swedencentral.inference.ml.azure.com/score'), // replace with your API URL
+            'https://trackriz-msft.swedencentral.inference.ml.azure.com/score'), // replace with your API URL
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': ('Bearer ' + 'dj9wVC0QGFUvdMnIB7JP7WAqqKcNf10f'),
-          "azureml-model-deployment": "trackriz-stock-1"
+          'Authorization': ('Bearer ' + 'e2Fhy7bxJIaocXUMTL4oNWPlAcCo1TB6'),
+          "azureml-model-deployment": "msftprediction8-1"
         },
         body: jsonEncode({
           'input_data': {
@@ -126,11 +126,11 @@ class _PredictStockPageState extends State<PredictStockPage> {
     if (_formKey.currentState!.validate()) {
       final response = await http.post(
         Uri.parse(
-            'https://trackriz-stock.swedencentral.inference.ml.azure.com/score'), // replace with your API URL
+            'https://trackriz-msft.swedencentral.inference.ml.azure.com/score'), // replace with your API URL
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': ('Bearer ' + 'dj9wVC0QGFUvdMnIB7JP7WAqqKcNf10f'),
-          "azureml-model-deployment": "trackriz-stock-1"
+          'Authorization': ('Bearer ' + 'e2Fhy7bxJIaocXUMTL4oNWPlAcCo1TB6'),
+          "azureml-model-deployment": "msftprediction8-1"
         },
         body: jsonEncode({
           'input_data': {
