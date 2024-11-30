@@ -37,7 +37,7 @@ This project integrates advanced AI technologies for financial document manageme
 The system architecture consists of three primary components:
 
 1. **Document Management System:**
-   - *Document AI Module*: Processes invoices and KYC documents.
+   - *Document AI Module*: Processes  invoices and KYC documents.
    - *Data Storage*: Securely stores processed documents.
 
 2. **Stock Prediction System:**
