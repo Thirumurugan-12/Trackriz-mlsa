@@ -22,13 +22,9 @@ This project integrates advanced AI technologies for financial document manageme
 
 2. **Stock Price Prediction**
    - Predictive analytics using Yahoo Finance data.
-   - Deployed AutoML model specifically trained on Bank of Baroda stock data for forecasting closing prices.
+   - Deployed AutoML model specifically trained on Microsoft stock data for forecasting closing prices.
 
-3. **Fraud Detection**
-   - Real-time fraud detection using transaction data from a financial payout simulator.
-   - Machine learning models to identify anomalies and potential fraudulent activities.
-
-4. **Front-End Interface**
+3. **Front-End Interface**
    - Developed using Flutter for a seamless, cross-platform user experience.
    - Interactive UI for accessing document management, stock predictions, and fraud alerts.
 
@@ -46,13 +42,7 @@ The system architecture consists of three primary components:
    - *AutoML Model*: Predicts stock prices.
    - *Prediction Endpoint*: Provides real-time stock predictions.
 
-3. **Fraud Detection System:**
-   - *Transaction Data Source*: Financial payout simulator.
-   - *Data Processing*: Prepares data for anomaly detection.
-   - *Anomaly Detection Model*: Identifies unusual transactions.
-   - *Fraud Detection Endpoint*: Alerts on potential fraud.
-
-4. **Front-End Application:**
+3. **Front-End Application:**
    - *Flutter Framework*: Powers the user interface for various platforms.
    - *User Interaction*: Allows users to view documents, stock predictions, and fraud alerts.
 
