@@ -1,7 +1,8 @@
 
 # TrackRiz
    
-![Screenshot 2024-08-01 192459](https://github.com/user-attachments/assets/cf753252-1e3c-4811-93b7-93ad3c926355)
+![Screenshot 2024-11-30 165749](https://github.com/user-attachments/assets/d2dca6e8-bffa-48e4-918b-9ef74b0e0d98)
+
 ![Screenshot (1527)](https://github.com/user-attachments/assets/000948e7-305c-46ad-a26b-3781a2383b09)
 ![Screenshot (1528)](https://github.com/user-attachments/assets/df496798-585a-4b48-9449-7520b0dfa75d)
 ![Screenshot (1529)](https://github.com/user-attachments/assets/364420d9-e065-4127-ae47-b94ac843e4c2)
