@@ -5,11 +5,9 @@ Pitch Desk
 https://stdntpartners-my.sharepoint.com/:p:/g/personal/kalyanasundaram_v_studentambassadors_com/ERjnO3LZobZPl6YOnH-8AT8BpAPZTbRRuuPbGK3BdBrQkQ?e=BcJZWm
 
 ![Screenshot 2024-11-30 165749](https://github.com/user-attachments/assets/d2dca6e8-bffa-48e4-918b-9ef74b0e0d98)
-
 ![Screenshot (1527)](https://github.com/user-attachments/assets/000948e7-305c-46ad-a26b-3781a2383b09)
 ![Screenshot (1528)](https://github.com/user-attachments/assets/df496798-585a-4b48-9449-7520b0dfa75d)
 ![Screenshot (1529)](https://github.com/user-attachments/assets/364420d9-e065-4127-ae47-b94ac843e4c2)
-
 ![Screenshot (1527)](https://github.com/user-attachments/assets/13fa3a05-341c-4e43-bd6d-e9d9d3cbfcd8)
 
 
