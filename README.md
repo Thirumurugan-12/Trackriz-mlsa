@@ -10,7 +10,6 @@ https://stdntpartners-my.sharepoint.com/:p:/g/personal/kalyanasundaram_v_student
 ![Screenshot (1528)](https://github.com/Thirumurugan-12/Trackriz-mlsa/blob/main/assets/Screenshot%20(1528).png)
 ![Screenshot (1529)](https://github.com/Thirumurugan-12/Trackriz-mlsa/blob/main/assets/Screenshot%20(1529).png)
 
-![Screenshot (1527)](https://github.com/user-attachments/assets/13fa3a05-341c-4e43-bd6d-e9d9d3cbfcd8)
 
 
 ## Overview
@@ -49,7 +48,7 @@ The system architecture consists of three primary components:
    - *Flutter Framework*: Powers the user interface for various platforms.
    - *User Interaction*: Allows users to view documents, stock predictions, and fraud alerts.
 
-![Blank diagram (2)](https://github.com/user-attachments/assets/5e39b1f2-16a5-48bc-8287-f8b4207897d2)
+
 
 
 ## Getting Started
