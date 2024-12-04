@@ -1,13 +1,15 @@
 
 # TrackRiz
-   
-![Screenshot 2024-08-01 192459](https://github.com/user-attachments/assets/cf753252-1e3c-4811-93b7-93ad3c926355)
-![Screenshot (1527)](https://github.com/user-attachments/assets/000948e7-305c-46ad-a26b-3781a2383b09)
-![Screenshot (1528)](https://github.com/user-attachments/assets/df496798-585a-4b48-9449-7520b0dfa75d)
-![Screenshot (1529)](https://github.com/user-attachments/assets/364420d9-e065-4127-ae47-b94ac843e4c2)
-![Screenshot (1530)](https://github.com/user-attachments/assets/720f7fab-083b-405e-98e8-7d068cde4ce2)
-![Screenshot (1532)](https://github.com/user-attachments/assets/7286051c-72cc-4640-952d-ca14fa811559)
-![Screenshot (1527)](https://github.com/user-attachments/assets/13fa3a05-341c-4e43-bd6d-e9d9d3cbfcd8)
+
+Pitch Desk
+https://stdntpartners-my.sharepoint.com/:p:/g/personal/kalyanasundaram_v_studentambassadors_com/ERjnO3LZobZPl6YOnH-8AT8BpAPZTbRRuuPbGK3BdBrQkQ?e=BcJZWm
+
+![Screenshot 2024-11-30 165749](https://github.com/user-attachments/assets/d2dca6e8-bffa-48e4-918b-9ef74b0e0d98)
+
+![Screenshot (1527)](https://github.com/Thirumurugan-12/Trackriz-mlsa/blob/main/assets/Screenshot%20(1527).png)
+![Screenshot (1528)](https://github.com/Thirumurugan-12/Trackriz-mlsa/blob/main/assets/Screenshot%20(1528).png)
+![Screenshot (1529)](https://github.com/Thirumurugan-12/Trackriz-mlsa/blob/main/assets/Screenshot%20(1529).png)
+
 
 
 ## Overview
@@ -22,13 +24,9 @@ This project integrates advanced AI technologies for financial document manageme
 
 2. **Stock Price Prediction**
    - Predictive analytics using Yahoo Finance data.
-   - Deployed AutoML model specifically trained on Bank of Baroda stock data for forecasting closing prices.
+   - Deployed AutoML model specifically trained on Microsoft stock data for forecasting closing prices.
 
-3. **Fraud Detection**
-   - Real-time fraud detection using transaction data from a financial payout simulator.
-   - Machine learning models to identify anomalies and potential fraudulent activities.
-
-4. **Front-End Interface**
+3. **Front-End Interface**
    - Developed using Flutter for a seamless, cross-platform user experience.
    - Interactive UI for accessing document management, stock predictions, and fraud alerts.
 
@@ -37,7 +35,7 @@ This project integrates advanced AI technologies for financial document manageme
 The system architecture consists of three primary components:
 
 1. **Document Management System:**
-   - *Document AI Module*: Processes invoices and KYC documents.
+   - *Document AI Module*: Processes  invoices and KYC documents.
    - *Data Storage*: Securely stores processed documents.
 
 2. **Stock Prediction System:**
@@ -46,17 +44,11 @@ The system architecture consists of three primary components:
    - *AutoML Model*: Predicts stock prices.
    - *Prediction Endpoint*: Provides real-time stock predictions.
 
-3. **Fraud Detection System:**
-   - *Transaction Data Source*: Financial payout simulator.
-   - *Data Processing*: Prepares data for anomaly detection.
-   - *Anomaly Detection Model*: Identifies unusual transactions.
-   - *Fraud Detection Endpoint*: Alerts on potential fraud.
-
-4. **Front-End Application:**
+3. **Front-End Application:**
    - *Flutter Framework*: Powers the user interface for various platforms.
    - *User Interaction*: Allows users to view documents, stock predictions, and fraud alerts.
 
-![Blank diagram (2)](https://github.com/user-attachments/assets/5e39b1f2-16a5-48bc-8287-f8b4207897d2)
+
 
 
 ## Getting Started
