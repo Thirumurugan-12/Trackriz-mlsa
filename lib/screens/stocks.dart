@@ -79,11 +79,11 @@ class _PredictStockPageState extends State<PredictStockPage> {
       DateTime date = DateTime.now().add(Duration(days: i));
       final response = await http.post(
         Uri.parse(
-            'https://trackriz-msft.swedencentral.inference.ml.azure.com/score'), // replace with your API URL
+            'https://trackriz-ml-jplid.centralindia.inference.ml.azure.com/score'), // replace with your API URL
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': ('Bearer ' + 'e2Fhy7bxJIaocXUMTL4oNWPlAcCo1TB6'),
-          "azureml-model-deployment": "msftprediction8-1"
+          'Authorization': ('Bearer ' + '9aOYjqLwsmaPm2yUq2FTlhg16UsESIXl'),
+          "azureml-model-deployment": "trackrizmsft8-1"
         },
         body: jsonEncode({
           'input_data': {
@@ -126,11 +126,11 @@ class _PredictStockPageState extends State<PredictStockPage> {
     if (_formKey.currentState!.validate()) {
       final response = await http.post(
         Uri.parse(
-            'https://trackriz-msft.swedencentral.inference.ml.azure.com/score'), // replace with your API URL
+            'https://trackriz-ml-jplid.centralindia.inference.ml.azure.com/score'), // replace with your API URL
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': ('Bearer ' + 'e2Fhy7bxJIaocXUMTL4oNWPlAcCo1TB6'),
-          "azureml-model-deployment": "msftprediction8-1"
+          'Authorization': ('Bearer ' + '9aOYjqLwsmaPm2yUq2FTlhg16UsESIXl'),
+          "azureml-model-deployment": "trackrizmsft8-1"
         },
         body: jsonEncode({
           'input_data': {
