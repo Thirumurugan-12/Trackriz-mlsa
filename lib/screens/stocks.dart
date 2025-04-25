@@ -1,12 +1,10 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'dart:convert';
 import 'package:csv/csv.dart';
-import 'package:fl_chart/fl_chart.dart';
 import 'package:path_provider/path_provider.dart';
 
 class PredictStockPage extends StatefulWidget {
@@ -28,7 +26,6 @@ class _PredictStockPageState extends State<PredictStockPage> {
 
     for (var i = 1; i < csvList.length; i++) {
       spots.add(FlSpot(i.toDouble(), double.parse(csvList[i][1].toString())));
-      // print(spots);
     }
 
     setState(() {});
@@ -52,7 +49,7 @@ class _PredictStockPageState extends State<PredictStockPage> {
   Future<void> generateReport(String stock) async {
     DateTime date = DateTime.now();
     final responsepredict = await http.post(
-      Uri.parse('https://trackriz-bme3gqhfhybfhnap.swedencentral-01.azurewebsites.net/api/generate_content'),
+      Uri.parse('http://20.55.35.116:5000/api/generate_content'),
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode({
         'prompt':
@@ -79,11 +76,12 @@ class _PredictStockPageState extends State<PredictStockPage> {
       DateTime date = DateTime.now().add(Duration(days: i));
       final response = await http.post(
         Uri.parse(
-            'https://trackriz-ml-jplid.centralindia.inference.ml.azure.com/score'), // replace with your API URL
+            'https://trackriz-ml-fmacd.swedencentral.inference.ml.azure.com/score'),
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': ('Bearer ' + '9aOYjqLwsmaPm2yUq2FTlhg16UsESIXl'),
-          "azureml-model-deployment": "trackrizmsft8-1"
+          'Authorization': ('Bearer ' +
+              '2gBMZR5UlVtKr8g01fF1xmZ6zAWXyz7yWL9Ycb7p9WvYc9fAodKpJQQJ99BDAAAAAAAAAAAAINFRAZML4S13'),
+          "azureml-model-deployment": "markettrackriz8-1"
         },
         body: jsonEncode({
           'input_data': {
@@ -124,13 +122,15 @@ class _PredictStockPageState extends State<PredictStockPage> {
 
   Future<String> _predictStockPrice() async {
     if (_formKey.currentState!.validate()) {
+      showOverlayNotification(context, 'Prediction started...');
       final response = await http.post(
         Uri.parse(
-            'https://trackriz-ml-jplid.centralindia.inference.ml.azure.com/score'), // replace with your API URL
+            'https://trackriz-ml-fmacd.swedencentral.inference.ml.azure.com/score'),
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': ('Bearer ' + '9aOYjqLwsmaPm2yUq2FTlhg16UsESIXl'),
-          "azureml-model-deployment": "trackrizmsft8-1"
+          'Authorization': ('Bearer ' +
+              '2gBMZR5UlVtKr8g01fF1xmZ6zAWXyz7yWL9Ycb7p9WvYc9fAodKpJQQJ99BDAAAAAAAAAAAAINFRAZML4S13'),
+          "azureml-model-deployment": "markettrackriz8-1"
         },
         body: jsonEncode({
           'input_data': {
@@ -152,6 +152,12 @@ class _PredictStockPageState extends State<PredictStockPage> {
 
       if (response.statusCode == 200) {
         generateReport(response.body);
+        showOverlayNotification(context, 'Prediction complete.');
+
+        // Add a 3-second delay before showing the "Best time to buy" notification
+        await Future.delayed(Duration(seconds: 3));
+
+        showOverlayNotification(context, 'Best time to buy is now!');
         return response.body;
       } else {
         throw Exception('Failed to predict stock price ${response.body}');
@@ -159,6 +165,41 @@ class _PredictStockPageState extends State<PredictStockPage> {
     } else {
       throw Exception('Form validation failed');
     }
+  }
+
+  void showOverlayNotification(BuildContext context, String message) {
+    final overlay = Overlay.of(context);
+    final overlayEntry = OverlayEntry(
+      builder: (context) => Positioned(
+        top: 50.0,
+        left: 20.0,
+        right: 20.0,
+        child: Material(
+          elevation: 8.0,
+          borderRadius: BorderRadius.circular(8),
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            decoration: BoxDecoration(
+              color: Colors.black87,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  message,
+                  style: TextStyle(color: Colors.white),
+                ),
+                Icon(Icons.check_circle, color: Colors.greenAccent),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+
+    overlay.insert(overlayEntry);
+    Future.delayed(Duration(seconds: 3)).then((_) => overlayEntry.remove());
   }
 
   @override
@@ -175,59 +216,38 @@ class _PredictStockPageState extends State<PredictStockPage> {
                 controller: _openController,
                 decoration: InputDecoration(labelText: 'Open'),
                 keyboardType: TextInputType.number,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter a number';
-                  }
-                  return null;
-                },
+                validator: (value) =>
+                    value == null || value.isEmpty ? 'Please enter a number' : null,
               ),
               TextFormField(
                 controller: _highController,
                 decoration: InputDecoration(labelText: 'High'),
                 keyboardType: TextInputType.number,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter a number';
-                  }
-                  return null;
-                },
+                validator: (value) =>
+                    value == null || value.isEmpty ? 'Please enter a number' : null,
               ),
               TextFormField(
                 controller: _lowController,
                 decoration: InputDecoration(labelText: 'Low'),
                 keyboardType: TextInputType.number,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter a number';
-                  }
-                  return null;
-                },
+                validator: (value) =>
+                    value == null || value.isEmpty ? 'Please enter a number' : null,
               ),
               TextFormField(
                 controller: _adjCloseController,
                 decoration: InputDecoration(labelText: 'Adj Close'),
                 keyboardType: TextInputType.number,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter a number';
-                  }
-                  return null;
-                },
+                validator: (value) =>
+                    value == null || value.isEmpty ? 'Please enter a number' : null,
               ),
               TextFormField(
                 controller: _volumeController,
                 decoration: InputDecoration(labelText: 'Volume'),
                 keyboardType: TextInputType.number,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter a number';
-                  }
-                  return null;
-                },
+                validator: (value) =>
+                    value == null || value.isEmpty ? 'Please enter a number' : null,
               ),
               SizedBox(height: 20),
-              // add similar TextFormFields for Low, Adj Close, and Volume
               ElevatedButton(
                 onPressed: () {
                   setState(() {
@@ -238,10 +258,9 @@ class _PredictStockPageState extends State<PredictStockPage> {
                 },
                 child: Text('Predict'),
               ),
-              FutureBuilder<String>(
-                future: _prediction,
-                builder:
-                    (BuildContext context, AsyncSnapshot<String> snapshot) {
+              FutureBuilder<String>( 
+                future: _prediction, 
+                builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return CircularProgressIndicator();
                   } else if (snapshot.hasError) {
@@ -278,7 +297,6 @@ class _PredictStockPageState extends State<PredictStockPage> {
               Container(child: Text(_predictionResult)),
               Container(
                 height: 200,
-                // width: 500,
                 child: FutureBuilder<List<FlSpot>>(
                   future: _predictStocksPrices(),
                   builder: (BuildContext context,
@@ -292,12 +310,8 @@ class _PredictStockPageState extends State<PredictStockPage> {
                         children: [
                           DataTable(
                             columns: const <DataColumn>[
-                              DataColumn(
-                                label: Text('Days'),
-                              ),
-                              DataColumn(
-                                label: Text('Price'),
-                              ),
+                              DataColumn(label: Text('Days')),
+                              DataColumn(label: Text('Price')),
                             ],
                             rows: snapshot.data!
                                 .map(
